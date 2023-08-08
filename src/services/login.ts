@@ -8,7 +8,7 @@ type loginType = {
 
 export async function LoginApi({ email, password }: loginType) {
 
-    const response = await api.post('/autenticacao/login', {
+    const response = await api.post('/central/autenticacao/login', {
         email,
         senha: password
     }, {
@@ -22,7 +22,6 @@ export async function LoginApi({ email, password }: loginType) {
         localStorage.setItem('TOKEN', response.data.token)
         return (true)
     }
-    return (false)
     alert('Fail login')
-
+    return (false)
 }

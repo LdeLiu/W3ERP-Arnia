@@ -1,24 +1,30 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { FormGrupStyled, DivLoginStyled, FormLoginStyled, FormTitleStyled, InputLogin, LabelLogin, OtherButtons, TextCheckBox, ButtonFormLogin, CheckboxContainer, HiddenCheckbox, ImgShowPassword } from './style';
+import { FormGrupStyled, DivLoginStyled, FormLoginStyled, FormTitleStyled, InputLogin, LabelLogin, OtherButtons, TextCheckBox, ButtonFormLogin, CheckboxContainer, HiddenCheckbox, ImgShowPassword, StyledLink } from './style';
+import { useNavigate } from 'react-router-dom';
 
 
 type data = {
-    email: string;
-    rememberMe: boolean;
-    password: string;
+    email?: string;
+    rememberMe?: boolean;
+    password?: string;
 }
 
 type propsType = {
-    func: () => void
+    func: (param:any) => Promise<boolean>
 }
 
 export function FormLogin({ func }: propsType) {
 
-    function onSubmit(data: data) {
-        func()
-        console.log(data);
+    const navigate = useNavigate()
+
+    const onSubmit: SubmitHandler<data> = async (data: data) => {
+        const logged: boolean = await func(data)
+        if(!logged){
+            alert("formlogin-onSubmit falhou o login")
+        }
+        navigate('/dashboard')
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -53,7 +59,7 @@ export function FormLogin({ func }: propsType) {
                         <HiddenCheckbox {...register("rememberMe")} onChange={handleCheckboxChange} checked={checked} />
                         <TextCheckBox > Lembrar-me </TextCheckBox>
                     </CheckboxContainer>
-                    <a href="">Esqueci minha senha</a>
+                    <StyledLink href="">Esqueci minha senha</StyledLink>
                 </OtherButtons>
                 <ButtonFormLogin type="button" value="Entrar" onClick={() => handleSubmit(onSubmit)()} />
             </FormLoginStyled>

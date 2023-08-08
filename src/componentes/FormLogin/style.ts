@@ -15,7 +15,7 @@ display: flex;
 flex-direction: column;
 gap: 2rem;
 
-width: 60%;
+width: 75%;
 
 `
 
@@ -79,11 +79,15 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 `
 export const TextCheckBox = styled.label`
 font-weight: bold;
+font-size: 0.7rem;
 `
 export const StyledCheckbox = styled.label`
 border: 1px solid gray;
 padding: 0.5rem;
+`
 
+export const StyledLink = styled.a`
+font-size: 0.8rem;
 `
 
 
