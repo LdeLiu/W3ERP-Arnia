@@ -1,12 +1,9 @@
 import { styled } from "styled-components"; 
 
 export const StyledAside = styled.div`
-    @media only screen and (max-width: 894px) {
-        width: 20vw;
-    }
 
-    width: 16vw;
-    height: 100vh ;
+    min-width: 12.5rem;
+    min-height: 100%;
     background-color: #001C98;
 
     display: flex;
@@ -77,7 +74,7 @@ export const StyledDivContactUs = styled.div`
 export const StyledImgContactUs = styled.img`
     width: 100%;
     position: absolute;
-    top: -5.5rem;
+    top: -6rem;
 
     @media only screen and (max-width: 894px) {
         top: -5rem;

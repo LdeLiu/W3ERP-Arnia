@@ -2,8 +2,9 @@ import { styled } from "styled-components";
 
 export const StyledHeader = styled.div`
     background-color: white;
-    height: 13vh;
+    height: 5.5rem;
     width: 100%;
+    max-height: 4.3rem;
     display: flex;
     justify-content: end;
     align-items: center;

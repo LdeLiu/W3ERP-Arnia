@@ -25,3 +25,17 @@ export async function LoginApi({ email, password }: loginType) {
     alert('Fail login')
     return (false)
 }
+
+export async function getUser(){
+
+    const token = localStorage.getItem('TOKEN')
+
+    const response = await api.get('/central/usuario/me', {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'X-TENANT-ID': 'arnia'
+        }
+      })
+    return response.data
+}

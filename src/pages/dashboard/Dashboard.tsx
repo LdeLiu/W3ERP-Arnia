@@ -5,15 +5,22 @@ import { Header } from "../../componentes/Header/Header";
 import { ProgressBar } from "../../componentes/ProgressBar/ProgressBar";
 import { DashboarResume } from "../../services/dashboard";
 
-import { StyledContent, StyledDashBoard, StyledDivProgressBar, StyledMain } from "./style";
+import { StyledContent, StyledDashBoard, StyledDivProgressBar, StyledMain, StyledTablesDashboard } from "./style";
 import { DashboardType } from './types';
+import { TableDashboard } from '../../componentes/TableDashboard/TableDashboard';
+
+import calendaryImg from '../../assets/dashboard/calendar.png'
 
 export function Dashboard() {
 
     const [resume, setResume] = useState<DashboardType>()
   useEffect(() => {
     getResume()
-  }, [ProgressBar])
+  },[])
+
+//   const teste = useCallback(() => {
+//     getResume()
+//     },[resume])
 
   async function getResume() {
     const response = await DashboarResume()
@@ -31,7 +38,7 @@ export function Dashboard() {
                             <div className="ProgressBarHeader">
                                 <h4>Dashboard</h4>
                                 <div className="filter">
-                                    <img src="./dashboard/calendar.png" alt="" />
+                                    <img src={calendaryImg} alt="" />
                                     <p>mostrar:</p> 
                                     <button>
                                         <p>Esse mês v</p>
@@ -45,6 +52,10 @@ export function Dashboard() {
                                 <ProgressBar text="Total clientes em baixa" percentage={resume?.percentualTotalClientesBaixa??0} value={resume?.quantidadeClientesBaixa??0} variation={resume?.percentualVariacaoClientesBaixa??0}/>
                             </div>
                       </StyledDivProgressBar>
+                      <StyledTablesDashboard>
+                        <TableDashboard titleTable='produtos'/>
+                        <TableDashboard titleTable='clientes'/>
+                      </StyledTablesDashboard>
                 </StyledContent>
             </StyledMain>
         </StyledDashBoard>

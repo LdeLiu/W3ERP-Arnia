@@ -2,22 +2,21 @@ import { styled } from "styled-components";
 
 export const StyledDashBoard = styled.div`
     display: flex;
-    width: 100vw;
+    width: 100%;
+    min-height: 100vh;
 `
 
 export const StyledMain = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 84vw;
-    @media only screen and (max-width: 894px) {
-        width: 80vw;
-    }
+    width: 100%;
+
 `
 
 export const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 
     padding: 1rem;
 `
@@ -32,7 +31,7 @@ export const StyledDivProgressBar = styled.div`
     border-radius: 0.5rem;
 
     width: 100%;
-    height: 25vh;
+    height: 8.5rem;
 
     .ProgressBarHeader{
         display: flex;
@@ -68,4 +67,9 @@ export const StyledDivProgressBar = styled.div`
         display: flex;
         justify-content: space-around;
     }
+`
+
+export const StyledTablesDashboard = styled.div`
+    display: flex;
+    gap: 1rem;
 `

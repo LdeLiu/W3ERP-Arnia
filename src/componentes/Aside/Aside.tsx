@@ -1,20 +1,10 @@
 import { ButtonAside } from "../ButtonAside/ButtonAside";
 import { StyledAside, StyledDivButtons, StyledDivContactUs, StyledImgContactUs, StyledLogoAside } from "./style";
+import logo from '../../assets/logoAsideDashboard.png'
+import contactUsImg from '../../assets/aside/Saly-31.png'
 
-const buttons = [
-    {
-        imgSrc: "./aside/pie-two.png",
-        txt: "Dashboard",
-    },
-    {
-        imgSrc: "./aside/chart-line.png",
-        txt: "Predições",
-    },
-    {
-        imgSrc: "./aside/facial-cleanser.png",
-        txt: "Produtos",
-    }
-]
+
+const buttons = ["Dashboard","Predições","Produtos"]
 
 type propsType = {
     page: string
@@ -22,23 +12,23 @@ type propsType = {
 
 export function Aside(props: propsType){
     return(
-        <>
+    
             <StyledAside>
-                <StyledLogoAside src="./logoAsideDashboard.png" alt="" />
+                <StyledLogoAside src={logo} alt="" />
                 
                 <StyledDivButtons>
-                    {buttons.map((button) => <ButtonAside imgSrc={button.imgSrc} txt={button.txt} page={props.page}/>)}
+                    {buttons.map((button,index) => <ButtonAside key={index} txt={button} page={props.page}/>)}
                 </StyledDivButtons>
                
                 <div className="contactus">
                     <StyledDivContactUs>
-                        <StyledImgContactUs src="./aside/Saly-31.png" alt="" />
+                        <StyledImgContactUs src={contactUsImg} alt="" />
                         <p>precisando de <b>ajuda ou suporte</b> em algo?</p>
                         <button>fale conosco</button>
                     </StyledDivContactUs>
                 </div>
                 
             </StyledAside>
-        </>
+        
     )
 }

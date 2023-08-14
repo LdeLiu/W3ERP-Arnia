@@ -23,6 +23,10 @@ export const StyledProgressBar = styled.div`
         p{
             font-size: 0.7rem;
         }
+        .titleDetails{
+            font-size: 0.7rem;
+            color: #C5CFFF;
+        }
         .value{
             font-size: 1.5rem;
         }

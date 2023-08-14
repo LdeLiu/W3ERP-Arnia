@@ -4,6 +4,8 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { FormGrupStyled, DivLoginStyled, FormLoginStyled, FormTitleStyled, InputLogin, LabelLogin, OtherButtons, TextCheckBox, ButtonFormLogin, CheckboxContainer, HiddenCheckbox, ImgShowPassword, StyledLink } from './style';
 import { useNavigate } from 'react-router-dom';
 
+import eyeImg from '../../assets/eye-regular.svg'
+import eyeSlashImg from '../../assets/eye-slash-regular.svg'
 
 type data = {
     email?: string;
@@ -52,7 +54,7 @@ export function FormLogin({ func }: propsType) {
                 <FormGrupStyled error={errors.password}>
                     <LabelLogin htmlFor="">Senha</LabelLogin>
                     <InputLogin {...register("password", { required: true })} error={errors.password} type={showPassword ? 'text' : 'password'} placeholder='Insira sua senha' />
-                    <ImgShowPassword onClick={handleShowPassword} src={showPassword ? './eye-regular.svg' : './eye-slash-regular.svg'} />
+                    <ImgShowPassword onClick={handleShowPassword} src={showPassword ? `${eyeImg}` : `${eyeSlashImg}`} />
                 </FormGrupStyled>
                 <OtherButtons>
                     <CheckboxContainer onClick={handleCheckboxChange}>
