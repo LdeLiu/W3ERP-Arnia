@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { TitleTable } from "../TitleTable/TitleTable";
 import { StyledTableDiv, StyledTableDivHeader, StyledTableHeader, StyledTableRow, StyledTabled } from "./style";
-import { getPredictionsHistoric } from "../../services/predictions";
+import { getPredictionsHistoric, writeOffProduct } from "../../services/predictions";
 import { format } from 'date-fns'
 import historicImg from '../../assets/predictions/history.png'
 import buttonImg from '../../assets/predictions/ações.png'
@@ -30,8 +30,9 @@ export function TablePredictionHistoric(props: propsType){
         setData(response)
     }
 
-    async function darbaixa(){
+    async function darbaixa(id: number){
         console.log('deu baixa')
+        writeOffProduct(id)
     }
 
 
@@ -58,7 +59,7 @@ export function TablePredictionHistoric(props: propsType){
                             <div className="product" title={data.nome}><p>{`${(data.nome).substr(0, 23)}...`}</p></div>
                             <div className="lastPurchase"><p>{format(new Date(data.ultimaCompra), 'dd/MM/yy')}</p></div>
                             <div className="amount"><p>{data.quantidade}</p></div>
-                            <div className="button"><button onClick={darbaixa}><img src={buttonImg} alt="" /></button></div>
+                            <div className="button"><button onClick={()=>{darbaixa(data.id)}}><img src={buttonImg} alt="" /></button></div>
                         </StyledTableRow>
                     )
                 })} 

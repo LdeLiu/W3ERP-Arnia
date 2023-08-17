@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 export const StyledTableDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 0.5rem;
 
     width: 50%;
@@ -46,12 +45,12 @@ export const StyledTableHeader = styled.div`
     .title{
         width: 50%;
     }
-    .percentual{
+    .percentage{
         width: 20%;
         display: flex;
         justify-content: center;
     }
-    .button{
+    .amount{
         width: 20%;
         display: flex;
         justify-content: center;
@@ -80,13 +79,13 @@ export const StyledTableRow = styled.div<{line: number}>`
         width: 50%; 
 
     }
-    .percentual{
+    .percentage{
         width: 20%;
         display: flex;
         justify-content: center;
 
     }
-    .button{
+    .amount{
         width: 20%;
         display: flex;
         justify-content: center; 

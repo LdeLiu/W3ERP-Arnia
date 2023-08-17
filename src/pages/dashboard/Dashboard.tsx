@@ -4,11 +4,9 @@ import { Aside } from "../../componentes/Aside/Aside";
 import { Header } from "../../componentes/Header/Header";
 import { ProgressBar } from "../../componentes/ProgressBar/ProgressBar";
 import { DashboarResume } from "../../services/dashboard";
-
 import { StyledContent, StyledDashBoard, StyledDivProgressBar, StyledMain, StyledTablesDashboard } from "./style";
 import { DashboardType } from './types';
 import { TableDashboard } from '../../componentes/TableDashboard/TableDashboard';
-
 import calendaryImg from '../../assets/dashboard/calendar.png'
 
 export function Dashboard() {
@@ -22,7 +20,6 @@ export function Dashboard() {
     setResume(response)
   }
 
-
     return (
         <StyledDashBoard>
             <Aside page={"Dashboard"}></Aside>
@@ -35,9 +32,13 @@ export function Dashboard() {
                                 <div className="filter">
                                     <img src={calendaryImg} alt="" />
                                     <p>mostrar:</p> 
-                                    <button>
-                                        <p>Esse mês v</p>
-                                    </button>
+                                    <div className='select'>
+                                        <select name="filter" id="">
+                                            <option value="1" selected>Esse mês</option>
+                                            <option value="3">3 meses</option>
+                                            <option value="9">9 meses</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div className="PBs">

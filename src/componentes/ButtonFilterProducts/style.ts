@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
-export const StyledButtonFilter = styled.button<{selected: boolean}>`
-    background-color: ${props => props.selected ? "#001C98" : "transparent"};
+export const StyledButtonFilter = styled.button<{backgroundColor: boolean}>`
+    background-color: ${props => props.backgroundColor ? '#001C98' : "transparent"};
     box-shadow: 0px 1px 7px  rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 1rem;
@@ -18,12 +18,12 @@ export const StyledButtonFilter = styled.button<{selected: boolean}>`
         gap: 1rem;
     }
 `
-export const StyledTitle = styled.p<{selected: boolean}>`
-    color: ${props => props.selected ? "white" : "#212121"};
+export const StyledTitle = styled.p<{color: boolean}>`
+    color: ${props => props.color ? "white" : "#212121"};
 `
-export const StyledValue = styled.p<{selected: boolean}>`
+export const StyledValue = styled.p<{color: boolean}>`
             font-size: 1.5rem;
-            color: ${props => props.selected ? "white" : "#001C98"};
+            color: ${props => props.color ? "white" : "#001C98"};
 `
 
 export const StyledPercentage = styled.div<{positive: boolean}>`

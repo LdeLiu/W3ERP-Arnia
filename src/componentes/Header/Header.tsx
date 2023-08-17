@@ -23,7 +23,7 @@ export function Header(){
     }
     const navidate = useNavigate()
     const logout = () => {
-        //clean token on localstorage
+        localStorage. removeItem('TOKEN')
         navidate("/")
     }
 

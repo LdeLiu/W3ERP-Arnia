@@ -6,6 +6,8 @@ import { StyledTableDiv, StyledTableDivHeader, StyledTableHeader, StyledTableRow
 
 import productImg from '../../assets/tableDashboard/facial-cleanser.svg'
 import clientsImg from '../../assets/tableDashboard/every-user.svg'
+import rightImg from '../../assets/tableDashboard/right.png'
+import { useNavigate } from "react-router-dom";
 
 type propsType = {
     titleTable: string
@@ -18,6 +20,7 @@ type dataType = {
 
 export function TableDashboard({titleTable}: propsType){
 
+    const navigate = useNavigate()
     const [data, setData] = useState([])
     const [filter, setFilter] = useState(true)
     useEffect(() =>{
@@ -27,6 +30,10 @@ export function TableDashboard({titleTable}: propsType){
     async function getTableData(){
         const response = await DashboarTable({title:titleTable, filter: filter})
         setData(response)
+    }
+    const chengePage = (id: Number) => {
+        const page = (titleTable == "produtos" ? titleTable : "predicoes")
+        navigate(`/${page}/${id}`)
     }
         
     return(
@@ -49,7 +56,7 @@ export function TableDashboard({titleTable}: propsType){
                             <div className="id"><p>{data.id}</p></div>
                             <div className="name"><p>{data.nome}</p></div>
                             <div className="percentual"><p>{data.percentual > 0 ? `+${Math.floor(data.percentual)}%` : `${Math.floor(data.percentual)}%`}</p></div>
-                            <div className="button">&gt;</div>
+                            <div className="button" onClick={()=>{chengePage(data.id)}}><img src={rightImg} alt="" /></div>
                             {/* linha acima vai ser um botão que deve me redirecionar para detalhes do produto, devo passar o ID do produto clicado */}
                         </StyledTableRow>
                         )

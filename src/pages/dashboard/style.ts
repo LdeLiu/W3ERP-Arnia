@@ -41,7 +41,6 @@ export const StyledDivProgressBar = styled.div`
 
         .filter{
             display: flex;
-            align-items: center;
             gap: 0.5rem;
             background-color: white ;
             padding: 0.2rem 0.4rem ;
@@ -53,19 +52,25 @@ export const StyledDivProgressBar = styled.div`
             img{
                 width: 1rem;
             }
-            button{
+            .select{
                 background-color: transparent;
                 border:none;
 
                 color: #001C98;
                 font-weight: bold;
                 font-size: 0.8rem;
+                select{
+                    border: none;
+                    color: #001C98;
+                    font-weight: 600;
+                    outline: none;
+                }
             }
         }
     }
     .PBs{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 `
 

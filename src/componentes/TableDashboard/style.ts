@@ -90,7 +90,7 @@ export const StyledTableRow = styled.div<{line: number}>`
         width: 20%;
         display: flex;
         justify-content: center; 
-
+        cursor: pointer;
     }
 
 `

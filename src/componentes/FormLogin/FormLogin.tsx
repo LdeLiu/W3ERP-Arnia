@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form'
-
-import { FormGrupStyled, DivLoginStyled, FormLoginStyled, FormTitleStyled, InputLogin, LabelLogin, OtherButtons, TextCheckBox, ButtonFormLogin, CheckboxContainer, HiddenCheckbox, ImgShowPassword, StyledLink } from './style';
 import { useNavigate } from 'react-router-dom';
 
+import { FormGrupStyled, DivLoginStyled, FormLoginStyled, FormTitleStyled, InputLogin, LabelLogin, OtherButtons, TextCheckBox, ButtonFormLogin, CheckboxContainer, HiddenCheckbox, ImgShowPassword, StyledLink } from './style';
 import eyeImg from '../../assets/eye-regular.svg'
 import eyeSlashImg from '../../assets/eye-slash-regular.svg'
 
@@ -14,7 +13,7 @@ type data = {
 }
 
 type propsType = {
-    func: (param:any) => Promise<boolean>
+    func: (param:any) => Promise<void> | Promise<boolean>
 }
 
 export function FormLogin({ func }: propsType) {
@@ -22,9 +21,10 @@ export function FormLogin({ func }: propsType) {
     const navigate = useNavigate()
 
     const onSubmit: SubmitHandler<data> = async (data: data) => {
-        const logged: boolean = await func(data)
-        if(!logged){
-            alert("formlogin-onSubmit falhou o login")
+        await func(data)
+        if(!localStorage.getItem('TOKEN')){
+            alert("E-mail ou senha incorreto!")
+            return
         }
         navigate('/dashboard')
     }
@@ -49,11 +49,11 @@ export function FormLogin({ func }: propsType) {
             <FormLoginStyled>
                 <FormGrupStyled error={errors.email}>
                     <LabelLogin htmlFor="">E-mail</LabelLogin>
-                    <InputLogin {...register("email", { required: true })} error={errors.email} type="text" placeholder='Insira seu e-mail' />
+                    <InputLogin required {...register("email", { required: true })} error={errors.email} type="text" placeholder={errors.email ? "Preencha este campo" : "Insira seu e-mail"} />
                 </FormGrupStyled>
                 <FormGrupStyled error={errors.password}>
                     <LabelLogin htmlFor="">Senha</LabelLogin>
-                    <InputLogin {...register("password", { required: true })} error={errors.password} type={showPassword ? 'text' : 'password'} placeholder='Insira sua senha' />
+                    <InputLogin required {...register("password", { required: true })} error={errors.password} type={showPassword ? 'text' : 'password'} placeholder={errors.email ? "Preencha este campo" : "Insira sua senha"} />
                     <ImgShowPassword onClick={handleShowPassword} src={showPassword ? `${eyeImg}` : `${eyeSlashImg}`} />
                 </FormGrupStyled>
                 <OtherButtons>

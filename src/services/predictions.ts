@@ -55,3 +55,17 @@ export async function getPredictionsSoldoff(id?:string){
   // console.log(response)
 return response.data.content
 }
+
+export async function writeOffProduct(id: number){
+
+  await api.post(`/app/predicao/${id}/baixa/cancelar`, {
+    acertou: true,
+    dataProximaCompra: new Date(),
+    produtoId: id
+  }, {
+      headers: {
+          'Content-Type': 'application/json',
+          'X-TENANT-ID': 'arnia'
+      }
+  }).then( response => console.log("Write Off",response)).catch(error => console.log(error))
+}

@@ -31,6 +31,10 @@ input:focus, label:focus{
     border: ${props => props.error ? '1px solid red' : '1px solid #00C247'};
     outline: none;
 }
+input:valid{
+    border: ${props => props.error ? '1px solid red' : '1px solid #00C247'};
+    outline: none; 
+}
 
 `
 

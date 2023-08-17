@@ -30,17 +30,15 @@ export async function getPrroducts(pag: number,clas: string,filter: string){
   return response.data
   }
 
-  export async function getTableProduct(id?: number, clas?: string){
+  export async function getTableProduct(id: string, clas: string){
     const token = localStorage.getItem('TOKEN')
-    const classication = clas ? `?classificacao=${clas}` : ''
-  
-    const response = await api.get(`/app/produto/${id??''}/clientes${classication}`, {
+
+    const response = await api.get(`/app/produto/${id}/clientes?classificacao=${clas}`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
         'X-TENANT-ID': 'arnia'
       }
     })
-    // console.log(response)
   return response.data
   }
