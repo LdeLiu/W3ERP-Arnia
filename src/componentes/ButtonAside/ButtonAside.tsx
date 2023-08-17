@@ -24,7 +24,7 @@ export function ButtonAside({txt,page}: propsType){
         }
     }
 
-    const isPage = txt === page
+    const thisPage = txt === page
     const linkNavigate = "/" + txt.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
     const navigate = useNavigate()
     const handlePage = () => {
@@ -33,7 +33,7 @@ export function ButtonAside({txt,page}: propsType){
 
     return(
         <>
-            <StyledButtonAside onClick={handlePage} ispage={isPage}>
+            <StyledButtonAside onClick={handlePage} thispage={thisPage}>
                 <StyledImgButton src={iconButton()} alt="" />
                 <p>{txt}</p>
             </StyledButtonAside>

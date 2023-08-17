@@ -5,11 +5,12 @@ import { getPredictionsDetails } from '../../../services/predictions'
 
 import { StyledContent, StyledHeaderDetails } from "./style"
 import { ButtonReturn } from "../../../componentes/ButtonReturn/ButtonReturn"
+import { TablePredictionHistoric } from '../../../componentes/TablePredictionHistoric/TablePredictionHistoric'
+import { TablePredictionSoldoff } from '../../../componentes/TablePredictionSoldoff/TablePredictionSoldoff'
+
 import headerBackground from '../../../assets/predictions/fundoW3.png'
 import mailImg from '../../../assets/predictions/mail.png'
 import phoneImg from '../../../assets/predictions/phone.png'
-import { TablePredictionHistoric } from '../../../componentes/TablePredictionHistoric/TablePredictionHistoric'
-import { TablePredictionSoldoff } from '../../../componentes/TablePredictionSoldoff/TablePredictionSoldoff'
 
 
 export function DetailsPredictions(){

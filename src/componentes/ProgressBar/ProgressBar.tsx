@@ -16,9 +16,11 @@ export function ProgressBar (props: propsType) {
 
     return(
         <StyledProgressBar>
-            <div className='divCircularPB'>
-                <CircularProgressbar value={props.percentage} text={`${props.percentage}%`} />
-            </div>
+            {props.percentage && 
+                <div className='divCircularPB'>
+                    <CircularProgressbar value={props.percentage} text={`${props.percentage}%`} />
+                </div>
+            }
             <div className='details'>
                 <p className='titleDetails'>{props.text}</p>
                 <div>

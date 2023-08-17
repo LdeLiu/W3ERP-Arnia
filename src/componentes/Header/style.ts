@@ -49,8 +49,8 @@ export const StyledArrow = styled.button`
         }
 `
 
-export const StyledMenuPopUp = styled.div<{openMenu: boolean}>`
-    display: ${props => props.openMenu ? "flex" : "none"};
+export const StyledMenuPopUp = styled.div<{openmenu: boolean}>`
+    display: ${props => props.openmenu ? "flex" : "none"};
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;

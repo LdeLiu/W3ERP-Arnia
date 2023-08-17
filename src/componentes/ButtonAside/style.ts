@@ -1,10 +1,14 @@
 import { styled } from "styled-components";
 
-export const StyledButtonAside = styled.button<{ispage: boolean}>`
+interface typeProps {
+    thispage: boolean
+}
+
+export const StyledButtonAside = styled.button<typeProps>`
     width: 100%;
 
     padding: 0.5rem;
-    background-color: ${props => props.ispage ? "rgba(118, 130, 193, 0.3)" : "transparent"} ;
+    background-color: ${props => props.thispage ? "rgba(118, 130, 193, 0.3)" : "transparent"} ;
     border: none;
     border-radius: 0.3rem;
 

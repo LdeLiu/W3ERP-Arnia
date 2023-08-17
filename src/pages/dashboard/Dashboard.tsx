@@ -13,15 +13,10 @@ import calendaryImg from '../../assets/dashboard/calendar.png'
 
 export function Dashboard() {
 
-    const [resume, setResume] = useState<DashboardType>()
+  const [resume, setResume] = useState<DashboardType>()
   useEffect(() => {
     getResume()
   },[])
-
-//   const teste = useCallback(() => {
-//     getResume()
-//     },[resume])
-
   async function getResume() {
     const response = await DashboarResume()
     setResume(response)

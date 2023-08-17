@@ -11,10 +11,3 @@ export const StyledMain = styled.div`
     flex-direction: column;
     width: 100%;
 `
-export const StyledContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    padding: 1rem;
-`

@@ -48,7 +48,7 @@ export function Header(){
                 <StyledArrow onClick={handleShowMenu}>
                     <img src={angleDownImg} alt="" />
                 </StyledArrow>
-                <StyledMenuPopUp openMenu={showMenu} className="tooltip">
+                <StyledMenuPopUp openmenu={showMenu} className="tooltip">
                     <StyledButtonPopUp>
                         <img src={settingImg} alt="" />
                         <p>Configurações</p>
